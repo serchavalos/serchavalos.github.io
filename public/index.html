@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width">
+  <meta charset="utf-8">
+  <title>serchavalos.dev</title>
+  <meta name="description" content="Personal site">
+  <meta name="author" content="Sergio Avalos">
+  <style>
+@import url(https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Kristi&display=swap);
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Fira code', monospace
+}
+
+body {
+  display: flex;
+  background-color: #1E1E1E;
+  height: 100vh
+}
+
+main {
+  margin: auto;
+  padding: 1em;
+  text-align: left;
+  font-size: 1.5em
+}
+
+.greeting {
+  font-family: 'Kristi', curisve;
+  font-size: 2.5em;
+  transform: rotate(-25deg);
+  margin: 0 5px;
+  display: inline-block;
+}
+
+h1 {
+  color: #c24145;
+  font-size: 3em;
+  margin: 0 0 10px 0;
+  position: relative;
+  margin: 0 auto 20px;
+  padding: 10px 40px;
+  text-align: left;
+  background-color: #f0c127;
+}
+
+h1::before,
+h1::after {
+  content: '';
+  width: 80px;
+  height: 100%;
+  background-color: #a8871a;
+
+  /* position ribbon ends behind and slightly lower */
+  position: absolute;
+  z-index: -1;
+  top: 20px;
+
+  /* clip ribbon end shape */
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 25% 50%);
+
+  /* draw and position the folded ribbon bit */
+  background-image: linear-gradient(45deg, transparent 50%, #5d3922 50%);
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+h1::before {
+  left: -60px;
+}
+
+h1::after {
+  right: -60px;
+  transform: scaleX(-1);
+  /* flip horizontally */
+}
+
+
+p {
+  color: #faffff
+}
+
+ul {
+  margin-top: 10px;
+  list-style: none;
+  padding: 0
+}
+
+li {
+  display: inline-block;
+  margin: 2px 10px;
+  font-size: .8em
+}
+
+a,
+a:visited {
+  color: #faffff
+}
+
+.code {
+  background-color: #121212;
+  color: white;
+  font-family: "Fira Code";
+  padding: 16px;
+  font-size: 0.8rem;
+}
+
+.code .tag {
+  color: #6a6a6a;
+}
+
+.code .tag-name {
+  color: #5598d1;
+}
+
+.code .attr-name {
+  color: #9cdcfe;
+}
+
+.code .attr-value {
+  color: #ca8e76;
+}
+
+.code .pad-left-2 {
+  margin-left: 1rem;
+}
+
+.code .pad-left-4 {
+  margin-left: 2rem;
+}
+
+.code .pad-left-6 {
+  margin-left: 3rem;
+}
+
+.code .pad-left-8 {
+  margin-left: 4rem;
+}
+  </style>
+</head>
+
+<body>
+  <section class="code">
+    <p><span class="tag">&lt;</span><span class="tag-name">body</span><span class="tag">&gt;</span></p>
+    <p><span class="tag pad-left-2">&lt;</span><span class="tag-name">main</span><span class="tag">&gt;</span></p>
+    <p><span class="tag pad-left-4">&lt;</span><span class="tag-name">p</span> <span
+        class="attr-name">class</span>=<span class="attr-value">"greeting"</span><span class="tag">&gt;</span>Hi!<span
+        class="tag">&lt;&#47;</span><span class="tag-name">p</span><span class="tag">&gt;</span></p>
+    <p><span class="tag pad-left-4">&lt;</span><span class="tag-name">p</span><span class="tag">&gt;</span>My name is
+      Sergio<span class="tag">&lt;&#47;</span><span class="tag-name">p</span><span class="tag">&gt;</span></p>
+    <p><span class="tag pad-left-4">&lt;</span><span class="tag-name">p</span><span class="tag">&gt;</span>Software
+      Engineer @ Spotify<span class="tag">&lt;&#47;</span><span class="tag-name">p</span><span class="tag">&gt;</span>
+    </p>
+    <p><span class="tag pad-left-4">&lt;</span><span class="tag-name">ul</span><span class="tag">&gt;</span></p>
+    <p><span class="tag pad-left-6">&lt;</span><span class="tag-name">li</span><span class="tag">&gt;</span><span
+        class="tag pad-left-6">&lt;</span><span class="tag-name">a</span> <span class="attr-name">href</span>=<span
+        class="attr-value">"//www.linkedin.com/in/serchavalos"</span> <span class="attr-name">rel</span>=<span
+        class="attr-value">"”noreferrer”"</span> <span class="attr-name">target</span>=<span
+        class="attr-value">"_blank"</span><span class="tag">&gt;</span>/linkedin<span class="tag">&lt;&#47;</span><span
+        class="tag-name">a</span><span class="tag">&gt;</span><span class="tag">&lt;&#47;</span><span
+        class="tag-name">li</span><span class="tag">&gt;</span></p>
+    <p><span class="tag pad-left-6">&lt;</span><span class="tag-name">li</span><span class="tag">&gt;</span><span
+        class="tag pad-left-6">&lt;</span><span class="tag-name">a</span> <span class="attr-name">href</span>=<span
+        class="attr-value">"//twitter.com/serchavalos"</span> <span class="attr-name">rel</span>=<span
+        class="attr-value">"”noreferrer”"</span> <span class="attr-name">target</span>=<span
+        class="attr-value">"_blank"</span><span class="tag">&gt;</span>/twitter<span class="tag">&lt;&#47;</span><span
+        class="tag-name">a</span><span class="tag">&gt;</span><span class="tag">&lt;&#47;</span><span
+        class="tag-name">li</span><span class="tag">&gt;</span></p>
+    <p><span class="tag pad-left-6">&lt;</span><span class="tag-name">li</span><span class="tag">&gt;</span><span
+        class="tag pad-left-6">&lt;</span><span class="tag-name">a</span> <span class="attr-name">href</span>=<span
+        class="attr-value">"//github.com/serchavalos"</span> <span class="attr-name">rel</span>=<span
+        class="attr-value">"”noreferrer”"</span> <span class="attr-name">target</span>=<span
+        class="attr-value">"_blank"</span><span class="tag">&gt;</span>/github<span class="tag">&lt;&#47;</span><span
+        class="tag-name">a</span><span class="tag">&gt;</span><span class="tag">&lt;&#47;</span><span
+        class="tag-name">li</span><span class="tag">&gt;</span></p>
+    <p><span class="tag pad-left-6">&lt;</span><span class="tag-name">li</span><span class="tag">&gt;</span><span
+        class="tag pad-left-6">&lt;</span><span class="tag-name">a</span> <span class="attr-name">href</span>=<span
+        class="attr-value">"//codepen.io/serchavalos"</span> <span class="attr-name">rel</span>=<span
+        class="attr-value">"”noreferrer”"</span> <span class="attr-name">target</span>=<span
+        class="attr-value">"_blank"</span><span class="tag">&gt;</span>/codepen<span class="tag">&lt;&#47;</span><span
+        class="tag-name">a</span><span class="tag">&gt;</span><span class="tag">&lt;&#47;</span><span
+        class="tag-name">li</span><span class="tag">&gt;</span></p>
+    <p><span class="tag">&lt;&#47;</span><span class="tag-name">ul</span><span class="tag">&gt;</span></p>
+    <p><span class="tag">&lt;&#47;</span><span class="tag-name">main</span><span class="tag">&gt;</span></p>
+    <p><span class="tag">&lt;&#47;</span><span class="tag-name">body</span><span class="tag">&gt;</span></p>
+  </section>
+  <section class="preview">
+    <main>
+      <p class="greeting">Hi!</p>
+      <p>My name is Sergio</p>
+      <p>Software Engineer @ Spotify</p>
+      <ul>
+        <li><a href="//www.linkedin.com/in/serchavalos" rel=”noreferrer” target="_blank">/linkedin</a></li>
+        <li><a href="//twitter.com/serchavalos" rel=”noreferrer” target="_blank">/twitter</a></li>
+        <li><a href="//github.com/serchavalos" rel=”noreferrer” target="_blank">/github</a></li>
+        <li><a href="//codepen.io/serchavalos" rel=”noreferrer” target="_blank">/codepen</a></li>
+      </ul>
+    </main>
+  </section>
+</body>
+
+</html>
