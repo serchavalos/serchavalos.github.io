@@ -17,15 +17,11 @@
       font-family: "Fira code", monospace;
     }
 
-    body {
-      background-color: #6a6a6a;
-    }
-
     .scene {
-      width: 100%;
+      background: #1b1b1b;
       perspective: 30em;
-      display: flex;
-      align-items: center;
+      display: grid;
+      width: 100vw;
       height: 100vh;
     }
 
@@ -33,10 +29,14 @@
       display: none;
     }
 
-    input.preview-btn:checked+.card {
+    input.preview-btn:checked + .scene .card {
       transform: rotateY(180deg);
     }
 
+    input.preview-btn:checked + .scene {
+      background: radial-gradient(circle, rgba(251,235,63,1) 0%, rgba(252,74,70,1) 100%);
+    }
+    
     .card label {
       position: absolute;
       top: 0;
@@ -52,105 +52,18 @@
     }
 
     .card {
-      width: 100%;
+      width: 585px;
       height: 32%;
       position: relative;
       transition: transform 0.4s;
       transform-style: preserve-3d;
-      border: 1px solid white;
-      margin: 1em;
+      margin: auto;
     }
 
     .face {
-      width: 100%;
       position: absolute;
       backface-visibility: hidden;
-      height: 100%;
       box-sizing: border-box;
-    }
-
-    .preview {
-      background-color: #121212;
-      transform: rotateY(180deg);
-    }
-
-    main {
-      margin: auto;
-      padding: 1em;
-      text-align: left;
-      font-size: 1.5em;
-    }
-
-    .greeting {
-      font-family: "Kristi", curisve;
-      font-size: 2.5em;
-      transform: rotate(-25deg);
-      margin: 0 5px;
-      display: inline-block;
-    }
-
-    h1 {
-      color: #c24145;
-      font-size: 3em;
-      margin: 0 0 10px 0;
-      position: relative;
-      margin: 0 auto 20px;
-      padding: 10px 40px;
-      text-align: left;
-      background-color: #f0c127;
-    }
-
-    h1::before,
-    h1::after {
-      content: "";
-      width: 80px;
-      height: 100%;
-      background-color: #a8871a;
-
-      /* position ribbon ends behind and slightly lower */
-      position: absolute;
-      z-index: -1;
-      top: 20px;
-
-      /* clip ribbon end shape */
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 25% 50%);
-
-      /* draw and position the folded ribbon bit */
-      background-image: linear-gradient(45deg, transparent 50%, #5d3922 50%);
-      background-size: 20px 20px;
-      background-repeat: no-repeat;
-      background-position: bottom right;
-    }
-
-    h1::before {
-      left: -60px;
-    }
-
-    h1::after {
-      right: -60px;
-      transform: scaleX(-1);
-      /* flip horizontally */
-    }
-
-    p {
-      color: #faffff;
-    }
-
-    ul {
-      margin-top: 10px;
-      list-style: none;
-      padding: 0;
-    }
-
-    li {
-      display: inline-block;
-      margin: 2px 10px;
-      font-size: 0.8em;
-    }
-
-    a,
-    a:visited {
-      color: #faffff;
     }
 
     .code {
@@ -159,6 +72,7 @@
       font-family: "Fira Code";
       padding: 16px;
       font-size: 0.8rem;
+      width: 585px;
     }
 
     .code .tag {
@@ -196,107 +110,182 @@
 </head>
 
 <body>
+  <input type="checkbox" id="preview-btn" name="preview-btn" class="preview-btn" />
   <div class="scene">
-    <input type="checkbox" id="preview-btn" name="preview-btn" class="preview-btn" />
     <div class="card">
       <div class="face code">
         <label for="preview-btn">show preview</label>
-        <p>
-          <span class="tag">&lt;</span><span class="tag-name">body</span><span class="tag">&gt;</span>
-        </p>
-        <p>
-          <span class="tag pad-left-2">&lt;</span><span class="tag-name">main</span><span class="tag">&gt;</span>
-        </p>
-        <p>
-          <span class="tag pad-left-4">&lt;</span><span class="tag-name">p</span>
-          <span class="attr-name">class</span>=<span class="attr-value">"greeting"</span><span
+        <p><span class="tag">&lt;</span><span class="tag-name">body</span><span class="tag">&gt;</span></p>
+        <p><span class="tag pad-left-2">&lt;</span><span class="tag-name">main</span><span class="tag">&gt;</span></p>
+        <p><span class="tag pad-left-4">&lt;</span><span class="tag-name">p</span> <span
+            class="attr-name">class</span>=<span class="attr-value">"greeting"</span><span
             class="tag">&gt;</span>Hi!<span class="tag">&lt;&#47;</span><span class="tag-name">p</span><span
-            class="tag">&gt;</span>
-        </p>
-        <p>
-          <span class="tag pad-left-4">&lt;</span><span class="tag-name">p</span><span class="tag">&gt;</span>My name
-          is Sergio<span class="tag">&lt;&#47;</span><span class="tag-name">p</span><span class="tag">&gt;</span>
-        </p>
-        <p>
-          <span class="tag pad-left-4">&lt;</span><span class="tag-name">p</span><span class="tag">&gt;</span>Software
+            class="tag">&gt;</span></p>
+        <p><span class="tag pad-left-4">&lt;</span><span class="tag-name">p</span><span class="tag">&gt;</span>My name
+          is Sergio<span class="tag">&lt;&#47;</span><span class="tag-name">p</span><span class="tag">&gt;</span></p>
+        <p><span class="tag pad-left-4">&lt;</span><span class="tag-name">p</span><span class="tag">&gt;</span>Software
           Engineer @ Spotify<span class="tag">&lt;&#47;</span><span class="tag-name">p</span><span
-            class="tag">&gt;</span>
+            class="tag">&gt;</span></p>
+        <p><span class="tag pad-left-4">&lt;</span><span class="tag-name">ul</span><span class="tag">&gt;</span></p>
+        <p><span class="tag pad-left-6">&lt;</span><span class="tag-name">li</span><span class="tag">&gt;</span><span
+            class="tag">&lt;</span><span class="tag-name">a</span> <span class="attr-name">href</span>=<span
+            class="attr-value">"//www.linkedin.com/in/serchavalos"</span><span class="tag">&gt;</span>/linkedin<span
+            class="tag">&lt;&#47;</span><span class="tag-name">a</span><span class="tag">&gt;</span><span
+            class="tag">&lt;&#47;</span><span class="tag-name">li</span><span class="tag">&gt;</span></p>
+        <p><span class="tag pad-left-6">&lt;</span><span class="tag-name">li</span><span class="tag">&gt;</span><span
+            class="tag">&lt;</span><span class="tag-name">a</span> <span class="attr-name">href</span>=<span
+            class="attr-value">"//twitter.com/serchavalos"</span><span class="tag">&gt;</span>/twitter<span
+            class="tag">&lt;&#47;</span><span class="tag-name">a</span><span class="tag">&gt;</span><span
+            class="tag">&lt;&#47;</span><span class="tag-name">li</span><span class="tag">&gt;</span></p>
+        <p><span class="tag pad-left-6">&lt;</span><span class="tag-name">li</span><span class="tag">&gt;</span><span
+            class="tag">&lt;</span><span class="tag-name">a</span> <span class="attr-name">href</span>=<span
+            class="attr-value">"//github.com/serchavalos"</span><span class="tag">&gt;</span>/github<span
+            class="tag">&lt;&#47;</span><span class="tag-name">a</span><span class="tag">&gt;</span><span
+            class="tag">&lt;&#47;</span><span class="tag-name">li</span><span class="tag">&gt;</span></p>
+        <p><span class="tag pad-left-6">&lt;</span><span class="tag-name">li</span><span class="tag">&gt;</span><span
+            class="tag">&lt;</span><span class="tag-name">a</span> <span class="attr-name">href</span>=<span
+            class="attr-value">"//codepen.io/serchavalos"</span><span class="tag">&gt;</span>/codepen<span
+            class="tag">&lt;&#47;</span><span class="tag-name">a</span><span class="tag">&gt;</span><span
+            class="tag">&lt;&#47;</span><span class="tag-name">li</span><span class="tag">&gt;</span></p>
+        <p><span class="tag pad-left-4">&lt;&#47;</span><span class="tag-name">ul</span><span class="tag">&gt;</span>
         </p>
-        <p>
-          <span class="tag pad-left-4">&lt;</span><span class="tag-name">ul</span><span class="tag">&gt;</span>
+        <p><span class="tag pad-left-2">&lt;&#47;</span><span class="tag-name">main</span><span class="tag">&gt;</span>
         </p>
-        <p>
-          <span class="tag pad-left-6">&lt;</span><span class="tag-name">li</span><span class="tag">&gt;</span><span
-            class="tag">&lt;</span><span class="tag-name">a</span>
-          <span class="attr-name">href</span>=<span class="attr-value">"//www.linkedin.com/in/serchavalos"</span>
-          <span class="attr-name">rel</span>=<span class="attr-value">"”noreferrer”"</span>
-          <span class="attr-name">target</span>=<span class="attr-value">"_blank"</span><span
-            class="tag">&gt;</span>/linkedin<span class="tag">&lt;&#47;</span><span class="tag-name">a</span><span
-            class="tag">&gt;</span><span class="tag">&lt;&#47;</span><span class="tag-name">li</span><span
-            class="tag">&gt;</span>
-        </p>
-        <p>
-          <span class="tag pad-left-6">&lt;</span><span class="tag-name">li</span><span class="tag">&gt;</span><span
-            class="tag">&lt;</span><span class="tag-name">a</span>
-          <span class="attr-name">href</span>=<span class="attr-value">"//twitter.com/serchavalos"</span>
-          <span class="attr-name">rel</span>=<span class="attr-value">"”noreferrer”"</span>
-          <span class="attr-name">target</span>=<span class="attr-value">"_blank"</span><span
-            class="tag">&gt;</span>/twitter<span class="tag">&lt;&#47;</span><span class="tag-name">a</span><span
-            class="tag">&gt;</span><span class="tag">&lt;&#47;</span><span class="tag-name">li</span><span
-            class="tag">&gt;</span>
-        </p>
-        <p>
-          <span class="tag pad-left-6">&lt;</span><span class="tag-name">li</span><span class="tag">&gt;</span><span
-            class="tag">&lt;</span><span class="tag-name">a</span>
-          <span class="attr-name">href</span>=<span class="attr-value">"//github.com/serchavalos"</span>
-          <span class="attr-name">rel</span>=<span class="attr-value">"”noreferrer”"</span>
-          <span class="attr-name">target</span>=<span class="attr-value">"_blank"</span><span
-            class="tag">&gt;</span>/github<span class="tag">&lt;&#47;</span><span class="tag-name">a</span><span
-            class="tag">&gt;</span><span class="tag">&lt;&#47;</span><span class="tag-name">li</span><span
-            class="tag">&gt;</span>
-        </p>
-        <p>
-          <span class="tag pad-left-6">&lt;</span><span class="tag-name">li</span><span class="tag">&gt;</span><span
-            class="tag">&lt;</span><span class="tag-name">a</span>
-          <span class="attr-name">href</span>=<span class="attr-value">"//codepen.io/serchavalos"</span>
-          <span class="attr-name">rel</span>=<span class="attr-value">"”noreferrer”"</span>
-          <span class="attr-name">target</span>=<span class="attr-value">"_blank"</span><span
-            class="tag">&gt;</span>/codepen<span class="tag">&lt;&#47;</span><span class="tag-name">a</span><span
-            class="tag">&gt;</span><span class="tag">&lt;&#47;</span><span class="tag-name">li</span><span
-            class="tag">&gt;</span>
-        </p>
-        <p>
-          <span class="tag pad-left-4">&lt;&#47;</span><span class="tag-name">ul</span><span class="tag">&gt;</span>
-        </p>
-        <p>
-          <span class="tag pad-left-2">&lt;&#47;</span><span class="tag-name">main</span><span class="tag">&gt;</span>
-        </p>
-        <p>
-          <span class="tag">&lt;&#47;</span><span class="tag-name">body</span><span class="tag">&gt;</span>
-        </p>
+        <p><span class="tag">&lt;&#47;</span><span class="tag-name">body</span><span class="tag">&gt;</span></p>
       </div>
       <div class="face preview">
         <label for="preview-btn">hide preview</label>
         <main>
           <p class="greeting">Hi!</p>
-          <p>My name is Sergio</p>
-          <p>Software Engineer @ Spotify</p>
+          <p>
+            My name is
+          </p>
+          <h1 class="codystar">
+            Sergio Avalos</h1>
+          <p>Software Engineer</p>
           <ul>
             <li>
-              <a href="//www.linkedin.com/in/serchavalos" rel="”noreferrer”" target="_blank">/linkedin</a>
+              <a href="//www.linkedin.com/in/serchavalos">/linkedin</a>
             </li>
             <li>
-              <a href="//twitter.com/serchavalos" rel="”noreferrer”" target="_blank">/twitter</a>
+              <a href="//twitter.com/serchavalos">/twitter</a>
             </li>
             <li>
-              <a href="//github.com/serchavalos" rel="”noreferrer”" target="_blank">/github</a>
+              <a href="//github.com/serchavalos">/github</a>
             </li>
             <li>
-              <a href="//codepen.io/serchavalos" rel="”noreferrer”" target="_blank">/codepen</a>
+              <a href="//codepen.io/serchavalos">/codepen</a>
             </li>
           </ul>
         </main>
       </div>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Codystar&family=Faster+One&family=Sail&family=Vast+Shadow&display=swap');
+
+        .preview {
+          background-color: #ffb109;
+          transform: rotateY(180deg);
+          z-index: -2;
+        }
+
+        .face.preview {
+          width: 400px;
+          position: absolute;
+          backface-visibility: hidden;
+          box-sizing: border-box;
+          left: 50%;
+          margin-left: -200px;
+          padding: 1em;
+          border: 8px double #C60000;
+    border-radius: 3%;
+    box-shadow: 3px 13px 1.3rem rgb(0 0 0 / 20%);
+        }
+
+        main {
+          padding: 0 1em;
+          text-align: center;
+          font-size: 1.5em;
+        }
+
+        .preview p.greeting {
+          font-family: "Kristi", curisve;
+          font-size: 2.5em;
+          transform: rotate(-25deg);
+          margin: 0 5px;
+          line-height: 1;
+          display: inline-block;
+        }
+
+        ul {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 10px;
+          list-style: none;
+        }
+
+        li {
+          font-size: 0.7em;
+          margin: 0 10px;
+        }
+
+        .preview li {
+          font-size: 0.55em;
+        }
+
+        .preview p,
+        .preview a,
+        .preview a:visited {
+          font-family: 'Vast Shadow', cursive;
+          line-height: 1.6;
+          color: #C60000;
+        }
+
+        h1 {
+          color: white;
+    font-size: 3em;
+    position: relative;
+    padding: 10px 40px;
+    background-color: #0f00db;
+    width: 120%;
+    margin-left: -71px;
+        }
+
+        h1.codystar {
+          font-family: 'Codystar', cursive;
+        }
+
+        h1::before,
+        h1::after {
+          content: "";
+          width: 80px;
+          height: 100%;
+          background-color: #010099;
+
+          /* position ribbon ends behind and slightly lower */
+          position: absolute;
+          z-index: -1;
+          top: 20px;
+
+          /* clip ribbon end shape */
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 25% 50%);
+
+          /* draw and position the folded ribbon bit */
+          background-image: linear-gradient(45deg, transparent 50%, #000034 50%);
+          background-size: 20px 20px;
+          background-repeat: no-repeat;
+          background-position: bottom right;
+        }
+
+        h1::before {
+          left: -60px;
+        }
+
+        h1::after {
+          right: -60px;
+          transform: scaleX(-1);
+        }
+      </style>
     </div>
   </div>
 </body>
