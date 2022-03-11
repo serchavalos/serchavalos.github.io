@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="utf-8" />
   <title>serchavalos.dev</title>
   <meta name="description" content="Personal site" />
@@ -41,14 +41,10 @@
       position: absolute;
       top: 0;
       right: 0;
-      text-align: right;
-      line-height: 1rem;
-      border: 1px solid;
-      padding: 5px 2px;
-      font-weight: normal;
-      background-color: white;
-      color: #121212;
-      backface-visibility: hidden;
+      color: transparent;
+      background-color: transparent;
+      bottom: 0;
+      left: 0;
     }
 
     .card {
@@ -73,6 +69,10 @@
       padding: 16px;
       font-size: 0.8rem;
       width: 585px;
+    }
+
+    .code p{
+      line-break: anywhere;
     }
 
     .code .tag {
@@ -154,7 +154,6 @@
         <p><span class="tag">&lt;&#47;</span><span class="tag-name">body</span><span class="tag">&gt;</span></p>
       </div>
       <div class="face preview">
-        <label for="preview-btn">hide preview</label>
         <main>
           <p class="greeting">Hi!</p>
           <p>
