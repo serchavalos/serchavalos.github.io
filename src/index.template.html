@@ -10,7 +10,17 @@
       @import url(https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap);
       @import url(https://fonts.googleapis.com/css2?family=Kristi&display=swap);
       @import url(https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Codystar&family=Faster+One&family=Sail&family=Vast+Shadow&display=swap);
-
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
       * {
         margin: 0;
         padding: 0;
@@ -36,9 +46,12 @@
       input.preview-btn:checked + .scene {
         background: radial-gradient(
           circle,
-          rgba(251, 235, 63, 1) 0%,
+          rgba(251, 235, 63, 1) 0,
           rgba(252, 74, 70, 1) 100%
         );
+        background-size: 400% 400%;
+        animation: gradient 10s ease infinite;
+        height: 100vh;
       }
 
       .card label {
@@ -117,7 +130,7 @@
       }
 
       .preview {
-        background-color: #ffb109;
+        background-color: #ffcb09;
         transform: rotateY(180deg);
         z-index: -2;
       }
