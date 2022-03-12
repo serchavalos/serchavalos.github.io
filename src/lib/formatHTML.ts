@@ -1,12 +1,14 @@
-const { tokenize } = require("hyntax");
+import { tokenize } from "hyntax";
 
-function isNewline(text) {
+function isNewline(text: string): boolean {
   return /^\n/.test(text);
 }
 
-function formatHTML(html) {
+export function formatHTML(html: string): string[] {
   const { tokens } = tokenize(html);
-  let indentation = null;
+  let indentation: number | null = null;
+  const initialPad = html.match(/^\n(\s+)</);
+  let offset = initialPad && initialPad.length > 1 ? initialPad[1].length : 0;
 
   const formatted = tokens.reduce(
     (acc, token) => {
@@ -25,7 +27,7 @@ function formatHTML(html) {
           break;
         case "token:open-tag-start":
           tagName = content.replace("<", "");
-          padLeft = indentation ? ` pad-left-${indentation}` : "";
+          padLeft = indentation ? ` pad-left-${indentation - offset}` : "";
           const formatted = `<span class="tag${padLeft}">&lt;</span><span class="tag-name">${tagName}</span>`;
           acc[currentPosition] += formatted;
           indentation = null;
@@ -43,7 +45,7 @@ function formatHTML(html) {
           break;
         case "token:close-tag":
           tagName = content.replace(/<\/|>/g, "");
-          padLeft = indentation ? ` pad-left-${indentation}` : "";
+          padLeft = indentation ? ` pad-left-${indentation - offset}` : "";
           acc[
             currentPosition
           ] += `<span class="tag${padLeft}">&lt;&#47;</span><span class="tag-name">${tagName}</span><span class="tag">&gt;</span>`;
@@ -59,7 +61,3 @@ function formatHTML(html) {
 
   return formatted.filter((item) => item !== "");
 }
-
-module.exports = {
-  formatHTML,
-};

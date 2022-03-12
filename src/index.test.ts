@@ -1,4 +1,4 @@
-const { formatHTML } = require("./lib/formatHTML");
+import { formatHTML } from "./lib/formatHTML";
 
 describe("formatHTML", () => {
   test.each`
