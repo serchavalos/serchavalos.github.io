@@ -134,6 +134,7 @@
         border: 8px double #c60000;
         border-radius: 3%;
         box-shadow: 3px 13px 1.3rem rgb(0 0 0 / 20%);
+        top: -25%;
       }
 
       main {
@@ -219,6 +220,27 @@
       h1::after {
         right: -60px;
         transform: scaleX(-1);
+      }
+      @media only screen and (max-width: 585px) {
+        .card,
+        .face {
+          width: 100%;
+        }
+        .face.preview {
+          width: 90%;
+          margin-left: unset;
+          left: 5%;
+        }
+        .face.preview h1 {
+          width: 110%;
+          margin-left: -15%;
+        }
+        .code {
+          font-size: 0.7rem;
+        }
+        .preview ul {
+          font-size: 1.1rem;
+        }
       }
     </style>
   </head>
